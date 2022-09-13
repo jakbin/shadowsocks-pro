@@ -216,7 +216,7 @@ def get_config(is_local):
                     config = parse_json_in_str(f.read().decode('utf8'))
                 except ValueError as e:
                     logging.error('found an error in config.json: %s',
-                                  e.message)
+                                  e)
                     sys.exit(1)
         else:
             config = {}
