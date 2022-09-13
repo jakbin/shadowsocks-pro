@@ -21,7 +21,12 @@ from __future__ import absolute_import, division, print_function, \
 import collections
 import logging
 import time
+import sys
 
+if sys.version_info.major == 3 and sys.version_info.minor >= 10:
+    from collections.abc import MutableMapping
+else:
+    from collections import MutableMapping
 
 
 # this LRUCache is optimized for concurrency, not QPS
