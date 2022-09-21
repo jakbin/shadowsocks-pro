@@ -7,6 +7,8 @@ shadowsocks
 
 A fast tunnel proxy that helps you bypass firewalls.
 
+## Main focus on shadowsocks client
+
 Features:
 - TCP & UDP support
 - User management API
@@ -14,41 +16,73 @@ Features:
 - Workers and graceful restart
 - Destination IP blacklist
 
+
+Client
+------
+
+### Install
+
+Debian / Ubuntu:
+```sh
+apt install python3-pip libcrypto++-dev
+```
+```sh
+pip3 install shadowsocks-pro
+```
+### Usage
+```sh
+sslocal -c config.json
+```
+
+### Config.json example
+```json
+{
+    "server": "example.shadowsocks.org",
+    "server_port": 8388,
+    "password": "u1rRWTssNv0p",
+    "method": "aes-256-cfb",
+    "timeout":400,
+    "local_address": "127.0.0.1",
+    "local_port":1080
+ }
+ ```
+
+
 Server
 ------
 
 ### Install
 
 Debian / Ubuntu:
-
-    apt-get install python-pip
-    pip install shadowsocks
-
+```sh
+    apt install python3-pip libcrypto++-dev
+    pip install shadowsocks-pro
+```
 CentOS:
-
+```sh
     yum install python-setuptools && easy_install pip
-    pip install shadowsocks
-
+    pip install shadowsocks-pro
+```
 Windows:
 
 See [Install Shadowsocks Server on Windows](https://github.com/shadowsocks/shadowsocks/wiki/Install-Shadowsocks-Server-on-Windows).
 
 ### Usage
-
-    ssserver -p 443 -k password -m aes-256-cfb
-
+```sh
+ssserver -p 443 -k password -m aes-256-cfb
+```
 To run in the background:
-
-    sudo ssserver -p 443 -k password -m aes-256-cfb --user nobody -d start
-
+```sh
+sudo ssserver -p 443 -k password -m aes-256-cfb --user nobody -d start
+```
 To stop:
-
-    sudo ssserver -d stop
-
+```sh
+sudo ssserver -d stop
+```
 To check the log:
-
-    sudo less /var/log/shadowsocks.log
-
+```sh
+sudo less /var/log/shadowsocks.log
+```
 Check all the options via `-h`. You can also use a [Configuration] file
 instead.
 
@@ -57,9 +91,9 @@ instead.
 [Create configeration file and run](https://github.com/shadowsocks/shadowsocks/wiki/Configuration-via-Config-File)
 
 To start:
-
-    ssserver -c /etc/shadowsocks.json
-
+```sh
+ssserver -c /etc/shadowsocks.json
+```
 
 Documentation
 -------------
